@@ -1,0 +1,73 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body>
+    <script>
+        function GeomFigure(centerX,centerY){
+            var x = centerX;
+            var y = centerY;
+
+            this.getCenter = function(){
+                x = centerX;
+                y = centerY;
+                return[x, y];
+            } 
+
+            this.getInfo = function(){
+                console.log('coords:'+" "+ x +','+ y);
+            }
+        }
+        function Rectangle(centerX,centerY,diagonal){
+            GeomFigure.call(this);
+            var diagLenth = diagonal;
+
+            this.getInfo = function(){
+                console.log('coords:'+" "+ x +','+ y+','+ diagLenth);
+            }
+        } 
+        function Circle(centerX,centerY,radius){
+            GeomFigure.call(this);
+            var radiusLenth = radius;
+            
+            this.getInfo = function(){
+                console.log('coords:'+" "+ x +','+ y+','+ radiusLenth);
+            }
+        } 
+    </script>
+
+    <script>
+        function Square(edge){
+            var edgeLength = edge; 
+
+            this.getEdgeLength = function(){
+                edgeLength = edge;
+                return edgeLength;
+            } 
+
+            this.perimeter = function(){
+                return edgeLength*4;
+            }
+        }
+
+        function Cube(edge){
+            var edgeLength = edge;
+            Square.call(this);
+
+            this.perimeter1 = function(){
+                return edgeLength*12;
+            }
+
+            var parentPerimeter = this.perimeter;
+            this.perimeter = function(){
+                parentPerimeter.call(this);
+                return parentPerimeter*3;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
