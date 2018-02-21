@@ -1,0 +1,42 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body>
+    <script>
+        function Home(owner){
+            this.owner = owner;
+            this.doorIsOpen = false;
+        }
+        Home.prototype.isOpen = function(){
+            this.doorIsOpen = true;
+            console.log(this.doorIsOpen);
+        }
+        
+        function HorseHome(owner){
+            this.owner = owner;
+            this.stableIsClean = true;
+        }
+        HorseHome.prototype = Object.create(Home.prototype); 
+        HorseHome.prototype.constructor = HorseHome;
+
+        HorseHome.prototype.isNotClean = function(){
+            this.stableIsClean = false;
+            console.log(this.stableIsClean);
+        }
+        
+        var home = new Home('Maks');
+        home.isOpen(); //true
+
+        var horseHome = new HorseHome('Maks');
+        horseHome.isNotClean(); // false
+
+        var horseHome2 = new HorseHome('Olya');
+        horseHome2.isOpen(); //true
+    </script>
+
+</body>
+
+</html>
