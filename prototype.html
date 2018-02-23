@@ -16,7 +16,7 @@
         }
         
         function HorseHome(owner){
-            this.owner = owner;
+            Home.apply(this, arguments);
             this.stableIsClean = true;
         }
         HorseHome.prototype = Object.create(Home.prototype); 
@@ -26,7 +26,19 @@
             this.stableIsClean = false;
             console.log(this.stableIsClean);
         }
-        
+
+        function LomboHome(owner){
+            Home.apply(this, arguments);
+        }
+
+        LomboHome.prototype = Object.create(Home.prototype); 
+        LomboHome.prototype.constructor = LomboHome;
+
+        LomboHome.prototype.isOpen = function(){
+            Home.prototype.isOpen.apply(this, arguments);
+            alert('this door is open!');
+        }
+
         var home = new Home('Maks');
         home.isOpen(); //true
 
@@ -35,6 +47,9 @@
 
         var horseHome2 = new HorseHome('Olya');
         horseHome2.isOpen(); //true
+
+        var lomboHome = new LomboHome('Kostya');
+        lomboHome.isOpen();//true + alert
     </script>
 
 </body>
