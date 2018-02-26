@@ -1,0 +1,39 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body>
+    <script>
+        function GeomFigure(x,y){
+            this._centerX = x;
+            this._centerY = y;
+
+            this.getCenter = function(){
+                return('coords: ' + this._centerX + ',' + this._centerY);
+            };
+        }
+
+        function Rectangle(diagonal){
+            GeomFigure.apply(this, arguments);
+            this._diagonal = diagonal;
+
+            this.info = function(){
+                console.log('coords: ' + this.getCenter() +',' + 'diagonal: ' + this._diagonal);
+            };
+        }
+
+        function Circle(radius){
+            GeomFigure.apply(this, arguments);
+            this._radius = radius;
+
+            this.info = function(){
+                console.log('coords: ' + this.getCenter() +',' + 'radius: ' + this._radius);
+            };
+        }
+    </script>
+
+</body>
+
+</html>

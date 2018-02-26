@@ -1,0 +1,36 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body>
+    <script>
+        function Square(edge){
+            this._edge = edge;
+
+            this.getEdge = function(){
+                return this._edge;
+            };
+
+            this.getPerimeter = function() {
+                return this._edge * 4;
+            };
+        }
+
+        function CubePerimeter1() {
+            Square.apply(this, arguments);
+            this.getPerimeter = function(){
+                return this._edge * 12;
+            };
+        }
+
+        function CubePerimeter2() {
+            Square.apply(this, arguments);
+            this.getPerimetr = this.getPerimeter()*3;
+        }
+    </script>
+    
+</body>
+
+</html>
